@@ -2,10 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\FacilityController;
+
 
 Route::get('/', function () {
-    return Inertia::render('welcome');
-})->name('home');
+    return view('home');
+});
+
+
+Route::resource('facilities', FacilityController::class);
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {

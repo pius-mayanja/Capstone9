@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facility;   // ✅ this line is required
+use App\Models\Facility;
 use Illuminate\Http\Request;
 
 

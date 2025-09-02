@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Facility extends Model
+{
+    protected $primaryKey = 'FacilityId';
+
+    protected $fillable = [
+        'Name',
+        'Location',
+        'Description',
+        'PartnerOrganization',
+        'FacilityType',
+        'Capabilities'
+    ];
+
+    protected $casts = [
+        'Capabilities' => 'array',
+    ];
+}
+

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\ProgramController;
 
 
 Route::get('/', function () {
@@ -11,6 +12,8 @@ Route::get('/', function () {
 
 
 Route::resource('facilities', FacilityController::class);
+Route::resource('programs', ProgramController::class);
+
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -20,7 +20,7 @@
                 <a href="{{ route('facilities.index') }}" class="bg-white text-indigo-700 px-6 py-3 rounded-lg shadow hover:bg-gray-100 font-semibold">
                     Explore Facilities
                 </a>
-                <a href="#" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg shadow hover:bg-yellow-300 font-semibold">
+                <a href="{{ route('programs.index') }}" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg shadow hover:bg-yellow-300 font-semibold">
                     View Programs
                 </a>
             </div>

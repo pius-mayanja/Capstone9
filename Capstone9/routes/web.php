@@ -5,6 +5,8 @@ use Inertia\Inertia;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ParticipantsController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\OutcomeController;
 
 
 Route::get('/', function () {
@@ -15,6 +17,8 @@ Route::get('/', function () {
 Route::resource('facilities', FacilityController::class);
 Route::resource('programs', ProgramController::class);
 Route::resource('participants', ParticipantsController::class);
+Route::resource('projects', ProjectController::class);
+Route::resource('outcomes', OutcomeController::class);
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

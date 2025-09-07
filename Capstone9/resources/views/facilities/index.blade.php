@@ -83,8 +83,8 @@
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <div class="bg-white rounded-lg shadow p-4 flex items-center">
-                <div class="rounded-full bg-indigo-100 p-3 mr-4">
-                    <i class="fas fa-building text-indigo-600 text-xl"></i>
+                <div class="rounded-full bg-indigo-100 px-3 py-1 mr-4">
+                    <i class="fas fa-building text-indigo-600 text-lg"></i>
                 </div>
                 <div>
                     <p class="text-gray-500 text-sm">Total Facilities</p>
@@ -92,8 +92,8 @@
                 </div>
             </div>
             <div class="bg-white rounded-lg shadow p-4 flex items-center">
-                <div class="rounded-full bg-blue-100 p-3 mr-4">
-                    <i class="fas fa-flask text-blue-600 text-xl"></i>
+                <div class="rounded-full bg-blue-100 px-3 py-1 mr-4">
+                    <i class="fas fa-flask text-blue-600 text-lg"></i>
                 </div>
                 <div>
                     <p class="text-gray-500 text-sm">Labs</p>
@@ -101,8 +101,8 @@
                 </div>
             </div>
             <div class="bg-white rounded-lg shadow p-4 flex items-center">
-                <div class="rounded-full bg-green-100 p-3 mr-4">
-                    <i class="fas fa-tools text-green-600 text-xl"></i>
+                <div class="rounded-full bg-green-100 px-3 py-1 mr-4">
+                    <i class="fas fa-tools text-green-600 text-lg"></i>
                 </div>
                 <div>
                     <p class="text-gray-500 text-sm">Workshops</p>
@@ -110,8 +110,8 @@
                 </div>
             </div>
             <div class="bg-white rounded-lg shadow p-4 flex items-center">
-                <div class="rounded-full bg-purple-100 p-3 mr-4">
-                    <i class="fas fa-check-circle text-purple-600 text-xl"></i>
+                <div class="rounded-full bg-purple-100 px-3 py-1 mr-4">
+                    <i class="fas fa-check-circle text-purple-600 text-lg"></i>
                 </div>
                 <div>
                     <p class="text-gray-500 text-sm">Testing Centers</p>

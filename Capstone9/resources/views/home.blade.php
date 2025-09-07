@@ -43,11 +43,12 @@
                 <p class="text-gray-600">Government labs, workshops, and testing centers as project anchors.</p>
             </div>
             </a>
-
-            <div class="bg-white rounded-2xl shadow p-6 text-center hover:scale-105 transition">
-                <h3 class="text-xl font-bold mb-2">Services</h3>
-                <p class="text-gray-600">Match project needs with machining, testing, and training services.</p>
-            </div>
+            <a href="{{ route('services.index') }}">
+                <div class="bg-white rounded-2xl shadow p-6 text-center hover:scale-105 transition">
+                    <h3 class="text-xl font-bold mb-2">Services</h3>
+                    <p class="text-gray-600">Match project needs with machining, testing, and training services.</p>
+                </div>
+            </a>
 
             <div class="bg-white rounded-2xl shadow p-6 text-center hover:scale-105 transition">
                 <h3 class="text-xl font-bold mb-2">Equipment</h3>

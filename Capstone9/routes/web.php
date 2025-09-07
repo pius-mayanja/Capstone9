@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ServiceController;
 
 
 Route::get('/', function () {
@@ -13,6 +14,7 @@ Route::get('/', function () {
 
 Route::resource('facilities', FacilityController::class);
 Route::resource('programs', ProgramController::class);
+Route::resource('services', ServiceController::class);
 
 
 

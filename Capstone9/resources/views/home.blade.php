@@ -85,8 +85,13 @@
                 <a href="{{ route('facilities.index') }}" class="hover:text-indigo-700 transition">Facilities</a>
                 <a href="{{ route('programs.index') }}" class="hover:text-indigo-700 transition">Programs</a>
                 <a href="#" class="hover:text-indigo-700 transition">Projects</a>
+<<<<<<< HEAD
                 <a href="#" class="hover:text-indigo-700 transition">Participants</a>
                 <a href="{{ route('services.index') }}" class="hover:text-indigo-700 transition">Services</a>
+=======
+                <a href="{{ route('participants.index') }}" class="hover:text-indigo-700 transition">Participants</a>
+                <a href="#" class="hover:text-indigo-700 transition">Services</a>
+>>>>>>> d0f629dbb820b5fd3e379c9bc9dc000f893b652c
                 <a href="#" class="hover:text-indigo-700 transition">Equipments</a>
             </nav>
             
@@ -198,13 +203,15 @@
         <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Our platform provides comprehensive tools to manage all aspects of innovation projects in line with Uganda's development goals</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
+            <a href="{{ route('programs.index') }}">
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
                 <div class="feature-icon mx-auto">
                     <i class="fas fa-list-alt"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2">Programs</h3>
                 <p class="text-gray-600">Organize work under national goals and strategic phases.</p>
             </div>
+            </a>
             
             <a href="{{ route('facilities.index') }}" class="block card-hover">
                 <div class="bg-white rounded-2xl shadow-lg p-6 text-center h-full">

@@ -235,13 +235,23 @@
                 <p class="text-gray-600">Track available machinery and tools for prototyping and testing.</p>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
+            <!-- <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
                 <div class="feature-icon mx-auto">
                     <i class="fas fa-tasks"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2">Projects</h3>
                 <p class="text-gray-600">Student and lecturer collaboration with clear stages and goals.</p>
-            </div>
+            </div> -->
+            <a href="{{ route('projects.index') }}">
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Projects</h3>
+                    <p class="text-gray-600">Student and lecturer collaboration with clear stages and goals.</p>
+                </div>
+            </a>
+
 
             <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
                 <div class="feature-icon mx-auto">
@@ -252,7 +262,7 @@
             </div>
         </div>
         
-        <div class="mt-8">
+        <!-- <div class="mt-8">
             <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl shadow-lg p-8 text-center text-white card-hover">
                 <div class="feature-icon mx-auto bg-white text-indigo-700">
                     <i class="fas fa-chart-line"></i>
@@ -260,7 +270,17 @@
                 <h3 class="text-2xl font-bold mb-2">Outcomes</h3>
                 <p class="opacity-90">Capture prototypes, CAD files, reports, and commercialization pathways.</p>
             </div>
-        </div>
+        </div> -->
+        <a href="{{ route('outcomes.index') }}">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl shadow-lg p-8 text-center text-white card-hover">
+                <div class="feature-icon mx-auto bg-white text-indigo-700">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Outcomes</h3>
+                <p class="opacity-90">Capture prototypes, CAD files, reports, and commercialization pathways.</p>
+            </div>
+        </a>
+
     </section>
 
     <!-- Testimonials Section -->

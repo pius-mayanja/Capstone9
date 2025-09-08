@@ -61,7 +61,7 @@
                                        class="text-indigo-600 hover:text-indigo-900" title="View">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('services.edit', $service) }}" 
+                                    <a href="{{ route('services.edit', $service->ServiceId) }}" 
                                        class="text-green-600 hover:text-green-900" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>

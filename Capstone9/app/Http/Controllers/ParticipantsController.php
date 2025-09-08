@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Participants;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ParticipantsController extends Controller

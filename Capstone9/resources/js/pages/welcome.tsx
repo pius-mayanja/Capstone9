@@ -1,3 +1,5 @@
+// Update the path below to the correct relative path to your routes file
+// Update the path below to the correct relative path to your routes file
 import { dashboard, login, register } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';

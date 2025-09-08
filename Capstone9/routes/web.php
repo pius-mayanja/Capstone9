@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\OutcomeController;
@@ -16,9 +17,14 @@ Route::get('/', function () {
 
 Route::resource('facilities', FacilityController::class);
 Route::resource('programs', ProgramController::class);
+Route::resource('services', ServiceController::class);
 Route::resource('participants', ParticipantsController::class);
 Route::resource('projects', ProjectController::class);
 Route::resource('outcomes', OutcomeController::class);
+
+// Other routes
+
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

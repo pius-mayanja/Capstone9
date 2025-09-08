@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Service;
 
 class Facility extends Model
 {
@@ -20,5 +21,10 @@ class Facility extends Model
     protected $casts = [
         'Capabilities' => 'array',
     ];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'FacilityId');
+    }
 }
 

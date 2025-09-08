@@ -85,8 +85,9 @@
                 <a href="{{ route('facilities.index') }}" class="hover:text-indigo-700 transition">Facilities</a>
                 <a href="{{ route('programs.index') }}" class="hover:text-indigo-700 transition">Programs</a>
                 <a href="#" class="hover:text-indigo-700 transition">Projects</a>
+                <a href="{{ route('services.index') }}" class="hover:text-indigo-700 transition">Services</a>
                 <a href="{{ route('participants.index') }}" class="hover:text-indigo-700 transition">Participants</a>
-                <a href="#" class="hover:text-indigo-700 transition">Services</a>
+        
                 <a href="#" class="hover:text-indigo-700 transition">Equipments</a>
             </nav>
             

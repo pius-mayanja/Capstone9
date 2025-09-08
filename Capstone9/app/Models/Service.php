@@ -7,7 +7,8 @@ use App\Models\Facility;
 
 class Service extends Model
 {
-    protected $primaryKey = 'ServiceId';
+    public $incrementing = true;   // ensure primary key is auto-increment
+    protected $keyType = 'int';    // primary key type
 
     protected $fillable = [
         'FacilityId',
@@ -21,4 +22,7 @@ class Service extends Model
     {
         return $this->belongsTo(Facility::class, 'FacilityId');
     }
+
+    // 👇 This tells Laravel to use ServiceId in routes
+   
 }

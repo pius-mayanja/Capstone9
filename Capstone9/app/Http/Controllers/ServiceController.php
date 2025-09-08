@@ -4,89 +4,74 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Models\Facility;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // List all services
     public function index()
     {
         $services = Service::with('facility')->paginate(10);
         return view('services.index', compact('services'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Show form to create a new service
     public function create()
     {
-         $facilities = Facility::all();
+        $facilities = Facility::all();
         return view('services.create', compact('facilities'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Store a new service
     public function store(Request $request)
     {
-         $data = $request->validate([
-            'FacilityId' => 'required|exists:facilities,FacilityId',
+        $validated = $request->validate([
+            'FacilityId' => 'required|integer',
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
-            'Category' => 'required|string|max:100',
-            'SkillType' => 'required|string|max:100',
+            'Category' => 'nullable|string|max:255',
+            'SkillType' => 'nullable|string|max:255',
         ]);
 
-        Service::create($data);
+        Service::create($validated);
 
         return redirect()->route('services.index')->with('success', 'Service created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // Show a single service (Laravel auto-resolves Service by ServiceId)
     public function show(Service $service)
     {
         return view('services.show', compact('service'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // Edit form
     public function edit(Service $service)
     {
         $facilities = Facility::all();
-        return view('services.edit', compact('service','facilities'));
+        return view('services.edit', compact('service', 'facilities'));
     }
-    
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // Update service
     public function update(Request $request, Service $service)
     {
-        $data = $request->validate([
-            'FacilityId' => 'required|exists:facilities,FacilityId',
+        $validated = $request->validate([
+            'FacilityId' => 'required|integer',
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
-            'Category' => 'required|string|max:100',
-            'SkillType' => 'required|string|max:100',
+            'Category' => 'nullable|string|max:255',
+            'SkillType' => 'nullable|string|max:255',
         ]);
 
-        $service->update($data);
+        $service->update($validated);
 
         return redirect()->route('services.index')->with('success', 'Service updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // Delete service
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->route('services.index')->with('success','Service deleted successfully.');
+
+        return redirect()->route('services.index')->with('success', 'Service deleted successfully.');
     }
 }

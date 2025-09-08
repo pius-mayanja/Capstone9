@@ -57,14 +57,17 @@
                             <td class="px-6 py-4 whitespace-nowrap text-gray-700">{{ $service->SkillType }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div class="flex justify-end space-x-3">
+                                    <!-- View -->
                                     <a href="{{ route('services.show', $service) }}" 
                                        class="text-indigo-600 hover:text-indigo-900" title="View">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('services.edit', $service->ServiceId) }}" 
+                                    <!-- Edit -->
+                                    <a href="{{ route('services.edit', $service) }}" 
                                        class="text-green-600 hover:text-green-900" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    <!-- Delete -->
                                     <form method="POST" action="{{ route('services.destroy', $service) }}" 
                                           class="inline" 
                                           onsubmit="return confirm('Delete this service?')">

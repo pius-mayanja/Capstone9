@@ -13,6 +13,7 @@ use App\Models\Program;
 use App\Models\Project;
 use App\Models\Participants;
 use App\Models\Service;
+use App\Http\Controllers\EquipmentController;
 
 
 Route::get('/', function () {
@@ -36,6 +37,7 @@ Route::resource('services', ServiceController::class);
 Route::resource('participants', ParticipantsController::class);
 Route::resource('projects', ProjectController::class);
 Route::resource('outcomes', OutcomeController::class);
+Route::resource('equipment', EquipmentController::class);
 
 // Other routes
 

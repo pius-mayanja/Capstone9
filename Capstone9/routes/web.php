@@ -8,13 +8,28 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\OutcomeController;
+use App\Models\Facility;
+use App\Models\Program;
+use App\Models\Project;
+use App\Models\Participants;
+use App\Models\Service;
 
 
 Route::get('/', function () {
     return view('home');
 });
 
-
+Route::get('/', function () {
+    return view('home', [
+        'programCount' => Program::count(),
+        'facilityCount' => Facility::count(),
+        'participantsCount' => Participants::count(),
+        'projectCount' => Project::count(),
+        'serviceCount' => Service::count(),
+        // 'equipmentCount' => Equipment::count(),
+    ]);
+});
+    
 Route::resource('facilities', FacilityController::class);
 Route::resource('programs', ProgramController::class);
 Route::resource('services', ServiceController::class);

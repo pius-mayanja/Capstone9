@@ -3,20 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Facility;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-        // $projects = Project::with('outcomes')->get();
-        $projects = Project::with('outcomes')->paginate(10);
+        // paginate so views can call total(), links(), firstItem() etc.
+        $projects = Project::with(['outcomes', 'facility', 'program'])->paginate(10);
         return view('projects.index', compact('projects'));
     }
 
     public function create()
     {
-        return view('projects.create');
+        // send facilities & programs for the select inputs in the form partial
+        $facilities = Facility::orderBy('Name')->get();
+        $programs = Program::orderBy('Name')->get();
+
+        return view('projects.create', compact('facilities', 'programs'));
     }
 
     public function store(Request $request)
@@ -24,38 +30,51 @@ class ProjectController extends Controller
         $data = $request->validate([
             'program_id' => 'required|exists:programs,id',
             'facility_id' => 'required|exists:facilities,id',
-            'title' => 'required|string',
-            'nature_of_project' => 'required|in:research,prototype,applied',
+            'title' => 'required|string|max:255',
+            'nature_of_project' => 'nullable|in:research,prototype,applied',
             'description' => 'nullable|string',
-            'innovation_focus' => 'nullable|string',
+            'innovation_focus' => 'nullable|string|max:255',
             'prototype_stage' => 'required|in:concept,prototype,mvp,market_launch',
             'testing_requirements' => 'nullable|string',
             'commercialization_plan' => 'nullable|string',
         ]);
 
         Project::create($data);
+
         return redirect()->route('projects.index')->with('success', 'Project created successfully.');
     }
 
     public function show(Project $project)
     {
+        $project->load(['outcomes', 'facility', 'program']);
         return view('projects.show', compact('project'));
     }
 
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        $facilities = Facility::orderBy('Name')->get();
+        $programs = Program::orderBy('Name')->get();
+
+        return view('projects.edit', compact('project', 'facilities', 'programs'));
     }
 
     public function update(Request $request, Project $project)
     {
         $data = $request->validate([
-            'title' => 'required|string',
+            'program_id' => 'required|exists:programs,id',
+            'facility_id' => 'required|exists:facilities,id',
+            'title' => 'required|string|max:255',
+            'nature_of_project' => 'nullable|in:research,prototype,applied',
             'description' => 'nullable|string',
+            'innovation_focus' => 'nullable|string|max:255',
+            'prototype_stage' => 'required|in:concept,prototype,mvp,market_launch',
+            'testing_requirements' => 'nullable|string',
+            'commercialization_plan' => 'nullable|string',
         ]);
 
         $project->update($data);
-        return redirect()->route('projects.index')->with('success', 'Project updated.');
+
+        return redirect()->route('projects.show', $project)->with('success', 'Project updated.');
     }
 
     public function destroy(Project $project)
@@ -63,4 +82,4 @@ class ProjectController extends Controller
         $project->delete();
         return redirect()->route('projects.index')->with('success', 'Project deleted.');
     }
-} 
+}

@@ -27,6 +27,8 @@ return new class extends Migration
             // Foreign keys
             $table->foreign('program_id')->references('id')->on('programs')->onDelete('cascade');
             $table->foreign('facility_id')->references('id')->on('facilities')->onDelete('cascade');
+            
+
         });
     }
 

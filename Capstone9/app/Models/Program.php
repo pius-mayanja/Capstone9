@@ -10,7 +10,7 @@ use App\Models\Project;
 
 class Program extends Model
 {
-    protected $primaryKey = 'ProgramId';
+    // protected $primaryKey = 'ProgramId';
 
     protected $fillable = [
         'Name',

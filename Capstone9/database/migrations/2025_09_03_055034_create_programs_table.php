@@ -9,7 +9,8 @@ return new class extends Migration
     public function up(): void
 {
     Schema::create('programs', function (Blueprint $table) {
-        $table->id('ProgramId');
+        // $table->id('ProgramId');
+        $table->id(); // default id
         $table->string('Name');
         $table->text('Description')->nullable();
         $table->string('NationalAlignment')->nullable();

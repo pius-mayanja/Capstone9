@@ -48,6 +48,17 @@
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 py-6">
+        @if(session('success'))
+            <div 
+                x-data="{ show: true }" 
+                x-show="show" 
+                x-init="setTimeout(() => show = false, 4000)" 
+                class="mb-4 p-4 rounded-lg bg-green-100 text-green-800 border border-green-200"
+            >
+                <i class="fas fa-check-circle mr-2"></i> {{ session('success') }}
+            </div>
+        @endif
+
 
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">

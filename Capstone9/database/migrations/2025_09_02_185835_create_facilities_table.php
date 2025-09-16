@@ -9,7 +9,8 @@ return new class extends Migration
    public function up(): void
 {
     Schema::create('facilities', function (Blueprint $table) {
-        $table->id('FacilityId');
+        // $table->id('FacilityId');
+        $table->id(); // default "id"
         $table->string('Name');
         $table->string('Location');
         $table->text('Description')->nullable();

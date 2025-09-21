@@ -19,6 +19,15 @@
     </div>
 
     <div class="mb-4">
+        <label class="block font-semibold">Nature of the Project</label>
+        <select name="nature_of_project" class="w-full border rounded px-3 py-2" required>
+            <option value="concept" @selected(old('nature_of_project', $project->nature_of_project ?? '') === 'concept')>Concept</option>
+            <option value="prototype" @selected(old('nature_of_project', $project->nature_of_project ?? '') === 'prototype')>Prototype</option>
+            <option value="mvp" @selected(old('nature_of_project', $project->nature_of_project ?? '') === 'mvp')>MVP</option>
+        </select>
+    </div>
+
+    <div class="mb-4">
         <label class="block font-semibold">Facility</label>
         <select name="facility_id" class="w-full border rounded px-3 py-2">
             <option value="">-- Select Facility --</option>

@@ -25,19 +25,21 @@ class EquipmentController extends Controller
 
     public function create()
     {
-        $facilities = Facility::all();
-        return view('equipment.create', compact('facilities'));
+        $facilities = Facility::orderBy('Name')->get();
+        $action = route('projects.store');
+        $update = false;
+        return view('equipment.create', compact('facilities', 'action', 'update'));
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
+            'facility_id' => 'required|exists:facilities,id',
             'Name' => 'required|string|max:255',
             'Type' => 'required|string|max:255',
             'Capability' => 'required|string|max:255',
             'Domain' => 'nullable|string|max:255',
             'Description' => 'nullable|string',
-            'FacilityId' => 'nullable|exists:facilities,FacilityId',
         ]);
 
         Equipment::create($data);
@@ -58,12 +60,12 @@ class EquipmentController extends Controller
     public function update(Request $request, Equipment $equipment)
     {
         $data = $request->validate([
+            'facility_id' => 'required|exists:facilities,id',
             'Name' => 'required|string|max:255',
             'Type' => 'required|string|max:255',
             'Capability' => 'required|string|max:255',
             'Domain' => 'nullable|string|max:255',
             'Description' => 'nullable|string',
-            'FacilityId' => 'nullable|exists:facilities,FacilityId',
         ]);
 
         $equipment->update($data);

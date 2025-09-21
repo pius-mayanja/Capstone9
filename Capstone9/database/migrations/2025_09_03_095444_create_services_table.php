@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('FacilityId')->constrained('facilities','FacilityId')->cascadeOnDelete();
+            $table->foreignId('facility_id')->constrained('facilities', 'id')->cascadeOnDelete();
             $table->string('Name');
             $table->text('Description')->nullable();
             $table->string('Category');   // Machining, Testing, Training

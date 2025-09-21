@@ -18,15 +18,17 @@ class ServiceController extends Controller
     // Show form to create a new service
     public function create()
     {
-        $facilities = Facility::all();
-        return view('services.create', compact('facilities'));
+        $facilities = Facility::orderBy('Name')->get();
+        $action = route('projects.store');
+        $update = false;
+        return view('services.create', compact('facilities', 'action', 'update'));
     }
 
     // Store a new service
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'FacilityId' => 'required|integer',
+            'facility_id' => 'required|exists:facilities,id',
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
             'Category' => 'nullable|string|max:255',
@@ -55,7 +57,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $validated = $request->validate([
-            'FacilityId' => 'required|integer',
+            'facility_id' => 'required|exists:facilities,id',
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
             'Category' => 'nullable|string|max:255',

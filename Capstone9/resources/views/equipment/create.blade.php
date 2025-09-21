@@ -8,7 +8,11 @@
 
 <div class="max-w-4xl mx-auto mt-10 bg-white p-6 rounded-lg shadow">
     <h1 class="text-2xl font-bold mb-6">Add Equipment / Tool</h1>
-
+    @include('equipment.form', [
+        'action' => route('equipment.store'),
+        'update' => false,
+        'facilities' => $facilities,
+    ])
     @if ($errors->any())
         <div class="mb-4 p-4 bg-red-100 text-red-700 rounded">
             <ul class="list-disc pl-5">
@@ -18,11 +22,6 @@
             </ul>
         </div>
     @endif
-
-    @include('equipment.form', [
-        'action' => route('equipment.store'),
-        'update' => false
-    ])
 </div>
 
 </body>

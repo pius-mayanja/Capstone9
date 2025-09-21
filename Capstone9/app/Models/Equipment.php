@@ -12,17 +12,18 @@ class Equipment extends Model
     protected $primaryKey = 'EquipmentId';
 
     protected $fillable = [
+        'facility_id',
         'Name',
         'Type',
         'Capability',
         'Domain',
         'Description',
-        'FacilityId',
     ];
 
     public function facility()
     {
-        return $this->belongsTo(Facility::class, 'FacilityId');
+        return $this->belongsTo(Facility::class, 'facility_id');
     }
+
 }
 

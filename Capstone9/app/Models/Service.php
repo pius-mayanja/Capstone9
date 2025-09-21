@@ -11,7 +11,7 @@ class Service extends Model
     protected $keyType = 'int';    // primary key type
 
     protected $fillable = [
-        'FacilityId',
+        'facility_id',
         'Name',
         'Description',
         'Category',
@@ -20,9 +20,8 @@ class Service extends Model
 
     public function facility()
     {
-        return $this->belongsTo(Facility::class, 'FacilityId');
+        return $this->belongsTo(Facility::class, 'facility_id');
     }
 
-    // 👇 This tells Laravel to use ServiceId in routes
    
 }

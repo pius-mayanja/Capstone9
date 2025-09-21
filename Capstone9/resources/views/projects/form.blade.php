@@ -15,8 +15,7 @@
 
     <div class="mb-4">
         <label class="block font-semibold">Facility</label>
-        <select name="facility_id" class="w-full border rounded px-3 py-2">
-            <option value="">-- Select Facility --</option>
+        <select name="facility_id" class="w-full border rounded px-3 py-2" required>
             @foreach($facilities as $facility)
                 <option value="{{ $facility->id }}" 
                     @selected(old('facility_id', $project->facility_id ?? '') == $facility->id)>
@@ -28,8 +27,7 @@
 
     <div class="mb-4">
         <label class="block font-semibold">Program</label>
-        <select name="program_id" class="w-full border rounded px-3 py-2">
-            <option value="">-- Select Program --</option>
+        <select name="program_id" class="w-full border rounded px-3 py-2" required>
             @foreach($programs as $program)
                 <option value="{{ $program->id }}" 
                     @selected(old('program_id', $project->program_id ?? '') == $program->id)>

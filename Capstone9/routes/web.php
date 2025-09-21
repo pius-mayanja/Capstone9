@@ -42,6 +42,9 @@ Route::resource('equipment', EquipmentController::class);
 // Other routes
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

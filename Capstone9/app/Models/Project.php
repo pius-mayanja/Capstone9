@@ -2,29 +2,33 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Facility;
 use App\Models\Program;
 
 class Project extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $fillable = [
-        'program_id', 'facility_id', 'title', 'nature_of_project',
-        'description', 'innovation_focus', 'prototype_stage',
-        'testing_requirements', 'commercialization_plan'
+        'title',
+        'description',
+        'nature_of_project',
+        'facility_id',
+        'program_id',
+        'prototype_stage',
     ];
+
+    // Relationships
+    public function facility()
+    {
+        return $this->belongsTo(Facility::class, 'facility_id');
+    }
 
     public function program()
     {
-        return $this->belongsTo(Program::class);
-    }
-
-    public function facility()
-    {
-        return $this->belongsTo(Facility::class);
+        return $this->belongsTo(Program::class, 'program_id');
     }
 
     public function outcomes()
@@ -32,3 +36,19 @@ class Project extends Model
         return $this->hasMany(Outcome::class);
     }
 }
+
+
+// namespace App\Models;
+
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Model;
+
+// class Project extends Model
+// {
+//     use HasFactory;
+
+//     protected $fillable = [
+//         'title',
+//         'description',
+//     ];
+// }

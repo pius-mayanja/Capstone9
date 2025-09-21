@@ -7,7 +7,7 @@ use App\Models\Service;
 
 class Facility extends Model
 {
-    protected $primaryKey = 'FacilityId';
+    // protected $primaryKey = 'FacilityId';
 
     protected $fillable = [
         'Name',

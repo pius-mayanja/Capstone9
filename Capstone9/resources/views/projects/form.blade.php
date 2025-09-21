@@ -1,10 +1,15 @@
+
+
 <form method="POST" action="{{ $action }}">
     @csrf
-    @if($update) @method('PUT') @endif
+    @if($update)
+        @method('PUT')
+    @endif
 
     <div class="mb-4">
         <label class="block font-semibold">Title</label>
-        <input type="text" name="title" value="{{ old('title', $project->title ?? '') }}"
+        <input type="text" name="title" 
+               value="{{ old('title', $project->title ?? '') }}"
                class="w-full border rounded px-3 py-2" required>
     </div>
 
@@ -15,7 +20,8 @@
 
     <div class="mb-4">
         <label class="block font-semibold">Facility</label>
-        <select name="facility_id" class="w-full border rounded px-3 py-2" required>
+        <select name="facility_id" class="w-full border rounded px-3 py-2">
+            <option value="">-- Select Facility --</option>
             @foreach($facilities as $facility)
                 <option value="{{ $facility->id }}" 
                     @selected(old('facility_id', $project->facility_id ?? '') == $facility->id)>
@@ -27,7 +33,8 @@
 
     <div class="mb-4">
         <label class="block font-semibold">Program</label>
-        <select name="program_id" class="w-full border rounded px-3 py-2" required>
+        <select name="program_id" class="w-full border rounded px-3 py-2">
+            <option value="">-- Select Program --</option>
             @foreach($programs as $program)
                 <option value="{{ $program->id }}" 
                     @selected(old('program_id', $project->program_id ?? '') == $program->id)>
@@ -48,6 +55,6 @@
     </div>
 
     <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">
-        Save Project
+        {{ $update ? 'Update Project' : 'Save Project' }}
     </button>
 </form>

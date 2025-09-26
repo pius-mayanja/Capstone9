@@ -13,7 +13,7 @@ return new class extends Migration
 {
     Schema::create('equipment', function (Blueprint $table) {
         $table->id('EquipmentId');
-        $table->foreignId('facility_id')->constrained('facilities', 'id')->cascadeOnDelete();
+        $table->foreignId('facility_id')->constrained('facilities', 'id')->restrictOnDelete();
         $table->string('Name');
         $table->string('Type');              // Tool, Machine, Device
         $table->string('Capability');        // e.g. "3D Printing"

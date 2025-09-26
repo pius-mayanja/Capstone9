@@ -24,7 +24,7 @@ class Facility extends Model
 
     public function services()
     {
-        return $this->hasMany(Service::class, 'FacilityId');
+        return $this->hasMany(Service::class, 'facility_id');
     }
 }
 

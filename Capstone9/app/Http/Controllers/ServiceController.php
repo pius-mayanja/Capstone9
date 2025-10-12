@@ -43,6 +43,9 @@ class ServiceController extends Controller
     // Show a single service (Laravel auto-resolves Service by ServiceId)
     public function show(Service $service)
     {
+        if (request()->wantsJson()) {
+            return response()->json($service);
+        }
         return view('services.show', compact('service'));
     }
 

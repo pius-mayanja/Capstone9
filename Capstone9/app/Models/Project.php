@@ -7,17 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Facility;
 use App\Models\Program;
 
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class Project extends Model
 {
-    // use HasFactory;
+    use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'description',
-        'nature_of_project',
-        'facility_id',
-        'program_id',
-        'prototype_stage',
+
+    protected $casts = [
+        'TestingRequirements' => 'array',
     ];
 
     // Relationships

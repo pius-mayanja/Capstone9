@@ -3,14 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Project;
 // If your Project model is in a different namespace or file, update the import accordingly.
 // For example, if it's in 'App\Project', use:
 // use App\Project;
 
+
 class Program extends Model
 {
-    protected $primaryKey = 'ProgramId';
+    use HasFactory;
 
     protected $fillable = [
         'Name',

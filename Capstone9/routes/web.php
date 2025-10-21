@@ -8,23 +8,44 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\OutcomeController;
+use App\Models\Facility;
+use App\Models\Program;
+use App\Models\Project;
+use App\Models\Participants;
+use App\Models\Service;
+use App\Models\Equipment;
+use App\Http\Controllers\EquipmentController;
 
 
 Route::get('/', function () {
     return view('home');
 });
 
-
+Route::get('/', function () {
+    return view('home', [
+        'programCount' => Program::count(),
+        'facilityCount' => Facility::count(),
+        'participantsCount' => Participants::count(),
+        'projectCount' => Project::count(),
+        'serviceCount' => Service::count(),
+        'equipmentCount' => Equipment::count(),
+    ]);
+});
+    
 Route::resource('facilities', FacilityController::class);
 Route::resource('programs', ProgramController::class);
 Route::resource('services', ServiceController::class);
 Route::resource('participants', ParticipantsController::class);
 Route::resource('projects', ProjectController::class);
 Route::resource('outcomes', OutcomeController::class);
+Route::resource('equipment', EquipmentController::class);
 
 // Other routes
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

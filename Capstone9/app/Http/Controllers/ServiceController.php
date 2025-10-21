@@ -18,8 +18,10 @@ class ServiceController extends Controller
     // Show form to create a new service
     public function create()
     {
-        $facilities = Facility::all();
-        return view('services.create', compact('facilities'));
+        $facilities = Facility::orderBy('Name')->get();
+        $action = route('projects.store');
+        $update = false;
+        return view('services.create', compact('facilities', 'action', 'update'));
     }
 
     // Store a new service
@@ -28,7 +30,7 @@ class ServiceController extends Controller
     try {
         //  Validation
         $validated = $request->validate([
-            'FacilityId' => 'required|integer',
+            'facility_id' => 'required|exists:facilities,id',
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
             'Category' => 'nullable|string|max:255',
@@ -60,6 +62,9 @@ class ServiceController extends Controller
     // Show a single service (Laravel auto-resolves Service by ServiceId)
     public function show(Service $service)
     {
+        if (request()->wantsJson()) {
+            return response()->json($service);
+        }
         return view('services.show', compact('service'));
     }
 
@@ -74,7 +79,7 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $validated = $request->validate([
-            'FacilityId' => 'required|integer',
+            'facility_id' => 'required|exists:facilities,id',
             'Name' => 'required|string|max:255',
             'Description' => 'nullable|string',
             'Category' => 'nullable|string|max:255',

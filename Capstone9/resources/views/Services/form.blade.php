@@ -15,13 +15,13 @@
                       rows="3">{{ old('Description', $service->Description ?? '') }}</textarea>
         </div>
 
-        <div>
+        <div class="mb-4">
             <label class="block font-semibold">Facility</label>
-            <select name="FacilityId" class="w-full border rounded px-3 py-2" required>
+            <select name="facility_id" class="w-full border rounded px-3 py-2">
                 <option value="">-- Select Facility --</option>
                 @foreach($facilities as $facility)
-                    <option value="{{ $facility->FacilityId }}" 
-                        @selected(old('FacilityId', $service->FacilityId ?? '') == $facility->FacilityId)>
+                    <option value="{{ $facility->id }}" 
+                        @selected(old('facility_id', $project->facility_id ?? '') == $facility->id)>
                         {{ $facility->Name }}
                     </option>
                 @endforeach

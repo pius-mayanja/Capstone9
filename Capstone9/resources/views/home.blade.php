@@ -209,8 +209,8 @@
                 </div>
                 <div class="p-4">
                     <div class="counter text-4xl font-bold text-indigo-700"
-                        x-data="{ count: 0, target: 127}"
-                        x-intersect="() => { 
+                        x-data="{ count: 0, target: {{ $equipmentCount }} }"
+                        x-init="() => { 
                             let interval = setInterval(() => { 
                                 if (count < target) count++; 
                                 else clearInterval(interval); 

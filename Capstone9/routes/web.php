@@ -13,6 +13,7 @@ use App\Models\Program;
 use App\Models\Project;
 use App\Models\Participants;
 use App\Models\Service;
+use App\Models\Equipment;
 use App\Http\Controllers\EquipmentController;
 
 
@@ -27,7 +28,7 @@ Route::get('/', function () {
         'participantsCount' => Participants::count(),
         'projectCount' => Project::count(),
         'serviceCount' => Service::count(),
-        // 'equipmentCount' => Equipment::count(),
+        'equipmentCount' => Equipment::count(),
     ]);
 });
     

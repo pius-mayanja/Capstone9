@@ -23,8 +23,10 @@ class ServiceController extends Controller
     }
 
     // Store a new service
-    public function store(Request $request)
-    {
+ public function store(Request $request)
+{
+    try {
+        //  Validation
         $validated = $request->validate([
             'FacilityId' => 'required|integer',
             'Name' => 'required|string|max:255',
@@ -33,10 +35,27 @@ class ServiceController extends Controller
             'SkillType' => 'nullable|string|max:255',
         ]);
 
+        //  Create service
         Service::create($validated);
 
-        return redirect()->route('services.index')->with('success', 'Service created successfully.');
+        //  Redirect to index with success
+        return redirect()
+            ->route('services.index')
+            ->with('success', ' Service created successfully!');
+    } 
+    catch (\Illuminate\Validation\ValidationException $e) {
+        // Validation errors already redirect automatically,
+        // so we just rethrow to let Laravel handle it nicely
+        throw $e;
+    } 
+    catch (\Exception $e) {
+        //  Any other errors
+        return redirect()
+            ->back()
+            ->withInput()
+            ->with('error', 'Service not saved: ' . $e->getMessage());
     }
+}
 
     // Show a single service (Laravel auto-resolves Service by ServiceId)
     public function show(Service $service)

@@ -13,7 +13,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 
 
-// Removed invalid global factory creation. Move this logic into test methods or setUp().
 
 class ServiceTest extends TestCase
 {
@@ -23,7 +22,7 @@ class ServiceTest extends TestCase
     public function it_creates_a_fake_service_and_checks_fields()
     {
         // Arrange - create a fake service using the factory
-        $service = Service::factory()->make(); // 'make' does NOT save to DB
+        $service = Service::factory()->make(); 
 
         // Assert that fake fields exist
         $this->assertNotEmpty($service->Name);

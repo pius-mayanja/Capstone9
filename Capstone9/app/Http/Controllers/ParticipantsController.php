@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 
 class ParticipantsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $participants = Participants::with('projects')->paginate(10);

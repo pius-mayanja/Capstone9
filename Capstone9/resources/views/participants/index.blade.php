@@ -304,10 +304,10 @@
     @endif
 
     <!-- Footer -->
-    <footer class="mt-12 bg-gray-800 text-white py-8">
+    <footer class="mt-12 bg-gray-800 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p>&copy; {{ date('Y') }} Projects Platform. All rights reserved.</p>
-            <p class="text-gray-400 text-sm mt-2">Empowering innovation through collaboration</p>
+            <p class="text-black">&copy; {{ date('Y') }} Projects Platform. All rights reserved.</p>
+            <p class="text-black text-sm mt-2">A unified system to manage Programs, Facilities, Services, Equipment, and more—driving Uganda's digital transformation.</p>
         </div>
     </footer>
 

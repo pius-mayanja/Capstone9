@@ -1,0 +1,9 @@
+{
+    "name": "sylivia/capstone9",
+    "autoload": {
+        "psr-4": {
+            "Sylivia\\Capstone9\\": "src/"
+        }
+    },
+    "require": {}
+}

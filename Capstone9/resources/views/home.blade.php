@@ -252,6 +252,8 @@
             </a>
 
 
+
+            <a href="{{ route('participants.index') }}" class="block card-hover">
             <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
                 <div class="feature-icon mx-auto">
                     <i class="fas fa-users"></i>

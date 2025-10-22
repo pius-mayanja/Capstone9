@@ -29,7 +29,19 @@ class Program extends Model
 
     public function projects()
     {
-        return $this->hasMany(Project::class, 'ProgramId');
+        return $this->hasMany(Project::class, 'program_id');
     }
+
+    protected static function boot()
+    {
+    parent::boot();
+
+    static::deleting(function ($program) {
+        if ($program->projects()->count() > 0) {
+            throw new \Exception("Program has Projects; archive or reassign before delete.");
+        }
+    });
+    }
+
 }
 

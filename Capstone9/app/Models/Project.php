@@ -14,6 +14,19 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'program_id',
+        'facility_id',
+        'title',
+        'nature_of_project',
+        'description',
+        'innovation_focus',
+        'prototype_stage',
+        'testing_requirements',
+        'commercialization_plan',
+    ];
+    
+
 
     protected $casts = [
         'TestingRequirements' => 'array',

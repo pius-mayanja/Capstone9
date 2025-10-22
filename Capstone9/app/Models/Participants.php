@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Project;
 
 class Participants extends Model
 {
@@ -17,5 +18,8 @@ class Participants extends Model
         'CrossSkillTrained',
         'Institution'
     ];  
-
+public function projects()
+{
+    return $this->belongsTo(Project::class, 'ProjectId');
+}
 }

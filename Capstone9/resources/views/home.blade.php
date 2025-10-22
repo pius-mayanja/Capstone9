@@ -84,10 +84,12 @@
                 <a href="#" class="text-indigo-700 font-medium border-b-2 border-indigo-700">Home</a>
                 <a href="{{ route('facilities.index') }}" class="hover:text-indigo-700 transition">Facilities</a>
                 <a href="{{ route('programs.index') }}" class="hover:text-indigo-700 transition">Programs</a>
-                <a href="#" class="hover:text-indigo-700 transition">Projects</a>
+                <a href="{{ route('projects.index') }}" class="hover:text-indigo-700 transition">Projects</a>
+                <a href="{{ route('services.index') }}" class="hover:text-indigo-700 transition">Services</a>
                 <a href="{{ route('participants.index') }}" class="hover:text-indigo-700 transition">Participants</a>
-                <a href="#" class="hover:text-indigo-700 transition">Services</a>
-                <a href="#" class="hover:text-indigo-700 transition">Equipments</a>
+        
+                <a href="{{ route('equipment.index') }}" class="hover:text-indigo-600">Equipment</a>
+
             </nav>
             
             <!-- Mobile menu button -->
@@ -135,58 +137,89 @@
         <div class="max-w-8xl mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-6 gap-6 text-center">
                 <div class="p-4">
-                    <div class="counter" x-data="{ count: 0, target: 127 }" x-intersect="() => { 
-                        let interval = setInterval(() => { 
-                            if (count < target) count++; 
-                            else clearInterval(interval); 
-                        }, 15); 
-                    }" x-text="count">0</div>
+                    <div class="counter text-4xl font-bold text-indigo-700"
+                        x-data="{ count: 0, target: {{ $facilityCount }} }"
+                        x-init="() => { 
+                            let interval = setInterval(() => { 
+                                if (count < target) count++; 
+                                else clearInterval(interval); 
+                            }, 15); 
+                        }"
+                        x-text="count">
+                        0
+                    </div>
                     <p class="text-gray-600">Facilities</p>
                 </div>
                 <div class="p-4">
-                    <div class="counter" x-data="{ count: 0, target: 42 }" x-intersect="() => { 
-                        let interval = setInterval(() => { 
-                            if (count < target) count++; 
-                            else clearInterval(interval); 
-                        }, 30); 
-                    }" x-text="count">0</div>
+                    <div class="counter text-4xl font-bold text-indigo-700"
+                        x-data="{ count: 0, target: {{ $programCount }} }"
+                        x-init="() => { 
+                            let interval = setInterval(() => { 
+                                if (count < target) count++; 
+                                else clearInterval(interval); 
+                            }, 15); 
+                        }"
+                        x-text="count">
+                        0
+                    </div>
                     <p class="text-gray-600">Active Programs</p>
                 </div>
-                   <div class="p-4">
-                    <div class="counter" x-data="{ count: 0, target: 358 }" x-intersect="() => { 
-                        let interval = setInterval(() => { 
-                            if (count < target) count++; 
-                            else clearInterval(interval); 
-                        }, 10); 
-                    }" x-text="count">0</div>
+                <div class="p-4">
+                    <div class="counter text-4xl font-bold text-indigo-700"
+                            x-data="{ count: 0, target: {{ $projectCount }} }"
+                            x-init="() => { 
+                                let interval = setInterval(() => { 
+                                    if (count < target) count++; 
+                                    else clearInterval(interval); 
+                                }, 15); 
+                            }"
+                            x-text="count">
+                            0
+                    </div>
                     <p class="text-gray-600">Projects</p>
                 </div>
+
                 <div class="p-4">
-                    <div class="counter" x-data="{ count: 0, target: 358 }" x-intersect="() => { 
-                        let interval = setInterval(() => { 
-                            if (count < target) count++; 
-                            else clearInterval(interval); 
-                        }, 10); 
-                    }" x-text="count">0</div>
+                    <div class="counter text-4xl font-bold text-indigo-700"
+                        x-data="{ count: 0, target: {{ $participantsCount }} }"
+                        x-init="() => { 
+                            let interval = setInterval(() => { 
+                                if (count < target) count++; 
+                                else clearInterval(interval); 
+                            }, 15); 
+                        }"
+                        x-text="count">
+                        0
+                    </div>
                     <p class="text-gray-600">Participants</p>
                 </div>
                 <div class="p-4">
-                    <div class="counter" x-data="{ count: 0, target: 16 }" x-intersect="() => { 
-                        let interval = setInterval(() => { 
-                            if (count < target) count++; 
-                            else clearInterval(interval); 
-                        }, 100); 
-                    }" x-text="count">0</div>
+                    <div class="counter text-4xl font-bold text-indigo-700"
+                        x-data="{ count: 0, target: {{ $serviceCount }} }"
+                        x-init="() => { 
+                            let interval = setInterval(() => { 
+                                if (count < target) count++; 
+                                else clearInterval(interval); 
+                            }, 15); 
+                        }"
+                        x-text="count">
+                        0
+                    </div>
                     <p class="text-gray-600">Services</p>
                 </div>
                 <div class="p-4">
-                    <div class="counter" x-data="{ count: 0, target: 16 }" x-intersect="() => { 
-                        let interval = setInterval(() => { 
-                            if (count < target) count++; 
-                            else clearInterval(interval); 
-                        }, 100); 
-                    }" x-text="count">0</div>
-                    <p class="text-gray-600">Equipment</p>
+                    <div class="counter text-4xl font-bold text-indigo-700"
+                        x-data="{ count: 0, target: {{ $equipmentCount }} }"
+                        x-init="() => { 
+                            let interval = setInterval(() => { 
+                                if (count < target) count++; 
+                                else clearInterval(interval); 
+                            }, 15); 
+                        }"
+                        x-text="count">
+                        0
+                    </div>
+                    <p class="text-gray-600">Equipments</p>
                 </div>
             </div>
         </div>
@@ -218,13 +251,15 @@
                 </div>
             </a>
 
-            <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
-                <div class="feature-icon mx-auto">
-                    <i class="fas fa-concierge-bell"></i>
+            <a href="{{ route('services.index') }}">
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Services</h3>
+                    <p class="text-gray-600">Match project needs with machining, testing, and training services.</p>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Services</h3>
-                <p class="text-gray-600">Match project needs with machining, testing, and training services.</p>
-            </div>
+            </a>
 
             <div class="bg-white rounded-2xl shadow-lg p-6 text-center card-hover">
                 <div class="feature-icon mx-auto">
@@ -272,6 +307,8 @@
                 <p class="opacity-90">Capture prototypes, CAD files, reports, and commercialization pathways.</p>
             </div>
         </div> -->
+        <br>
+        <br>
         <a href="{{ route('outcomes.index') }}">
             <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl shadow-lg p-8 text-center text-white card-hover">
                 <div class="feature-icon mx-auto bg-white text-indigo-700">

@@ -303,11 +303,75 @@
     </div>
     @endif
 
+<br>
+<br>
+<br>
+<br>
+<br>
     <!-- Footer -->
+<<<<<<< HEAD
     <footer class="mt-12 bg-gray-800 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p class="text-black">&copy; {{ date('Y') }} Projects Platform. All rights reserved.</p>
             <p class="text-black text-sm mt-2">A unified system to manage Programs, Facilities, Services, Equipment, and more—driving Uganda's digital transformation.</p>
+=======
+<footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">KEPHALEN</h3>
+                    <p class="mb-4">Driving innovation and collaboration for Uganda's digital transformation.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Home</a></li>
+                        <li><a href="{{ route('facilities.index') }}" class="hover:text-white transition">Facilities</a></li>
+                        <li><a href="{{ route('programs.index') }}" class="hover:text-white transition">Programs</a></li>
+                        <li><a href="#" class="hover:text-white transition">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>123 Innovation Drive, Kampala, Uganda</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2"></i>
+                            <span>+256 750 123 456</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>info@capplatform.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
+                <p>&copy; {{ date('Y') }} KEPHALEN. Built for innovation and collaboration.</p>
+            </div>
+>>>>>>> 3ed14a2a434c486574846c39240a37ea3347721e
         </div>
     </footer>
 
